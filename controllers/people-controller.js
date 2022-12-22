@@ -62,6 +62,7 @@ router.delete('/:id', async (req, res) =>{
     try{
         const deletedPerson = await People.findByIdAndDelete(req.params.id)
         console.log(deletedPerson)
+        res.redirect('/people')
     }catch(error){
         res.status(400).json({error: "error"})
     }
